@@ -1,0 +1,40 @@
+<p>invoices works!</p>
+<div>
+    <h1>Invoices</h1>
+</div>
+<div>
+    <table class="invoices_table" *ngIf="listInvoices.length">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Creation Date</th>
+                <th>Completion Date</th>
+                <th>Payment deadline</th>
+                <th>Grand total</th>
+                <th>Incoming?</th>
+                <th>Outgoing?</th>
+                <th>Partner ID</th>
+                <th>Categories ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let invoice of listInvoices" (click)="showInvoice(invoice.id!)">
+                <td>{{ invoice.id }}</td>
+                <td>{{ invoice.creationDate }}</td>
+                <td>{{ invoice.completionDate }}</td>
+                <td>{{ invoice.paymentDeadline }}</td>
+                <td>{{ invoice.grandTotal }}</td>
+                <td>{{ invoice.isIncoming  }}</td>
+                <td>{{ invoice.isOuGoing }}</td>
+                <td>{{ invoice.partnersId }}</td>
+                <td>{{ invoice.categoriesId }}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="9">Total: {{ listInvoices.length }}</td>
+            </tr>
+        </tfoot>
+
+    </table>
+</div>
