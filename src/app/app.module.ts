@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { InvoicesComponent } from './rest/invoices/invoices.component';
 import { InvoiceComponent } from './rest/invoice/invoice.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { InvoiceComponent } from './rest/invoice/invoice.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [],

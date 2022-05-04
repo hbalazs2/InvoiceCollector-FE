@@ -2,7 +2,7 @@
   <h1>Welcome people!</h1>
   <nav class="top_menu">
     <ul>
-      <li><a routerLink="" routerLinkActive="active" >Home</a></li>
+      <li><a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
       <li><a routerLink="invoices" routerLinkActive="active" >Invoices</a></li>
     </ul>
   </nav>

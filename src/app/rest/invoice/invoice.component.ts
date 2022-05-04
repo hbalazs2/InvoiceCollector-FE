@@ -9,11 +9,13 @@ import { InvoicesService } from '../invoices.service';
   styleUrls: ['./invoice.component.css']
 })
 export class InvoiceComponent implements OnInit {
-  invoiceInfo! : Invoice; 
+  invoiceInfo : Invoice[] = []; 
+  invoicesByComplDate : Invoice[] = []; 
 
   constructor(private activeroute: ActivatedRoute, private servInvoices: InvoicesService) {
     let id = String(activeroute.snapshot.queryParamMap.get('id'));
     this.servInvoices.getInvoice(id).subscribe(invoice => {
+      // console.log(invoice);
       this.invoiceInfo = invoice;
     });
   }

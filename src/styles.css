@@ -1,13 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-#container {
+/* #container {
     display: flex;
 }
 .col {
-    /* width: 100%; */
+    width: 100%;
     width: 50%;
-}
+} */
 
-.invoices_table {
+/* .invoices_table {
     border-collapse: collapse;
     width: 450px;
 }
@@ -35,4 +35,4 @@
 }
 .invoices_table tbody tr:nth-child(even) {
     background-color: #999;
-}
+} */

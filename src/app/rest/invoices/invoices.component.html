@@ -1,9 +1,8 @@
-<p>invoices works!</p>
 <div>
     <h1>Invoices</h1>
 </div>
 <div>
-    <table class="invoices_table" *ngIf="listInvoices.length">
+    <table class="table" *ngIf="listInvoices.length">
         <thead>
             <tr>
                 <th>ID</th>
@@ -24,17 +23,30 @@
                 <td>{{ invoice.completionDate }}</td>
                 <td>{{ invoice.paymentDeadline }}</td>
                 <td>{{ invoice.grandTotal }}</td>
-                <td>{{ invoice.isIncoming  }}</td>
-                <td>{{ invoice.isOuGoing }}</td>
+                <td>{{ invoice.outgoing  }}</td>
+                <td>{{ invoice.incoming }}</td>
                 <td>{{ invoice.partnersId }}</td>
                 <td>{{ invoice.categoriesId }}</td>
             </tr>
         </tbody>
-        <tfoot>
+        
+        <!-- <tfoot>
             <tr>
                 <td colspan="9">Total: {{ listInvoices.length }}</td>
             </tr>
-        </tfoot>
+        </tfoot> -->
 
     </table>
+    <div>
+        <p><label  for="start">Start date: </label>
+        <input type="date" id="startDate" min="2022-01-01" max="2030-12-31" #startDate></p>
+        <!-- <input type="text" id="textTest" > -->
+        <p><label for="end">End date:</label></p>
+        <input type="date" id="endDate" min="2022-01-01" max="2030-12-31" #endDate>
+        <button type="button" class="btn btn-primary" (click)="getInvoicesBetweenDatesByCDate(startDate.value, endDate.value)">Search</button>
+        <button type="button" class="btn btn-secondary" (click)="resetTable()">Reset</button>
+    </div>
+
+      
+    <!-- <p>{{ listInvoices.length }} invoices found in the database.</p> -->
 </div>

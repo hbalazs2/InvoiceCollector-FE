@@ -4,8 +4,8 @@ export interface Invoice {
     completionDate: Date,
     paymentDeadline: Date,
     grandTotal : number,
-    isIncoming : boolean,
-    isOuGoing : boolean,
+    incoming : boolean,
+    outgoing : boolean,
     partnersId : number,
     categoriesId : number
 }

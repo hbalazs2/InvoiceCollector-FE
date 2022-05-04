@@ -1,0 +1,29 @@
+.top_menu {
+    border-bottom: 1px solid red;
+    /* box-shadow: x-offset y-offset blur color */
+    box-shadow: 0px 2px 5px #aaa;
+}
+.top_menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /* text-align: center; */
+}
+.top_menu li {
+    display: inline;
+}
+.top_menu a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px 20px;
+    display: inline-block;
+}
+.top_menu .active{
+    color: white;
+    background-color: red;
+}
+.top_menu a:hover {
+    color: grey;
+}

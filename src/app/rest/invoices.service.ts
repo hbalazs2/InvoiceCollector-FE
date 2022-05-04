@@ -13,6 +13,7 @@ type invoice = {
 export class InvoicesService {
   private apiUrl = "http://localhost:8080/invoices";
   private apiUrlIdBase = "http://localhost:8080/invoice?id=";
+  private apiUrlBase = "http://localhost:8080/invoice";
 
   constructor(private http: HttpClient) { }
 
@@ -22,8 +23,13 @@ export class InvoicesService {
   }
 
   getInvoice(id : String) {
-    let apiUrlId = this.apiUrlIdBase + id;
+    let apiUrlId = this.apiUrlBase + "?id=" + id;
     // console.log(this.http.get<Invoice>(apiUrlId));
-    return this.http.get<Invoice>(apiUrlId);
+    return this.http.get<Invoice[]>(apiUrlId);
+  }
+
+  getInvoicesBetweenDatesByCompletionDate(start : string, end : string) {
+    let apiUrlDate = this.apiUrlBase + "Cod?startCompDate=" + start + "&endCompDate=" + end;
+    return this.http.get<invoice>(apiUrlDate);
   }
 }
