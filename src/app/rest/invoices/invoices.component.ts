@@ -47,11 +47,12 @@ export class InvoicesComponent implements OnInit {
   fillTheTable(listOfInvoices : Invoice[]) {
     this.listInvoices = listOfInvoices;
   }
-
+  
+  filterName1!:string;
+  filterName2!:string;
   resetTable() {
     this.servInvoices.getInvoices().subscribe(invoices => this.listInvoices = invoices.invoices);
+    this.filterName1 = '';
+    this.filterName2 = '';
   }
-
-  
-
 }

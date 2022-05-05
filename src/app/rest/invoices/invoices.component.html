@@ -12,21 +12,22 @@
                 <th>Grand total</th>
                 <th>Incoming?</th>
                 <th>Outgoing?</th>
-                <th>Partner ID</th>
-                <th>Categories ID</th>
+                <th>Partner</th>
+                <th>Categories</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let invoice of listInvoices" (click)="showInvoice(invoice.id!)">
                 <td>{{ invoice.id }}</td>
                 <td>{{ invoice.creationDate }}</td>
-                <td>{{ invoice.completionDate }}</td>
+                <td *ngIf="invoice.completionDate != null;"> {{ invoice.completionDate }}
+                <td *ngIf="invoice.completionDate == null;"> No data </td>
                 <td>{{ invoice.paymentDeadline }}</td>
                 <td>{{ invoice.grandTotal }}</td>
                 <td>{{ invoice.outgoing  }}</td>
                 <td>{{ invoice.incoming }}</td>
-                <td>{{ invoice.partnersId }}</td>
-                <td>{{ invoice.categoriesId }}</td>
+                <td>{{ invoice.partnerName }}</td>
+                <td>{{ invoice.category }}</td>
             </tr>
         </tbody>
         
@@ -38,13 +39,19 @@
 
     </table>
     <div>
-        <p><label  for="start">Start date: </label>
-        <input type="date" id="startDate" min="2022-01-01" max="2030-12-31" #startDate></p>
+        <div>
+            <label  for="start">Start date: </label>
+            <input type="date" id="startDate" min="2022-01-01" max="2030-12-31" #startDate [(ngModel)]="filterName1">
+        </div>
         <!-- <input type="text" id="textTest" > -->
-        <p><label for="end">End date:</label></p>
-        <input type="date" id="endDate" min="2022-01-01" max="2030-12-31" #endDate>
-        <button type="button" class="btn btn-primary" (click)="getInvoicesBetweenDatesByCDate(startDate.value, endDate.value)">Search</button>
-        <button type="button" class="btn btn-secondary" (click)="resetTable()">Reset</button>
+        <div>
+            <label for="end">End date:</label>
+            <input type="date" id="endDate" min="2022-01-01" max="2030-12-31" #endDate [(ngModel)]="filterName2">
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary" (click)="getInvoicesBetweenDatesByCDate(startDate.value, endDate.value)">Search</button>
+            <button type="button" class="btn btn-secondary" id="resetButton" (click)="resetTable()">Reset</button>
+        </div>
     </div>
 
       

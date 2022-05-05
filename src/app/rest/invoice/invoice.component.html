@@ -8,8 +8,8 @@
     <p><strong>Grand total: </strong>{{ invoice.grandTotal }}</p>
     <p><strong>Incoming?: </strong>{{ invoice.incoming  }}</p>
     <p><strong>Outgoing?: </strong>{{ invoice.outgoing }}</p>
-    <p><strong>Partner ID: </strong>{{ invoice.partnersId }}</p>
-    <p><strong>Categories ID: </strong>{{ invoice.categoriesId }}</p>
+    <p><strong>Partner: </strong>{{ invoice.partnerName }}</p>
+    <p><strong>Categories: </strong>{{ invoice.category }}</p>
     <hr>
 </div>
-<a routerLink="/invoices" routerLinkActive="active">Back to invoices</a>
+<a routerLink="/invoices" routerLinkActive="active"><button type="button" class="btn btn-secondary">Back to invoices</button> </a>

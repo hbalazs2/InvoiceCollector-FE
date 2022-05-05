@@ -6,6 +6,6 @@ export interface Invoice {
     grandTotal : number,
     incoming : boolean,
     outgoing : boolean,
-    partnersId : number,
-    categoriesId : number
+    partnerName : string,
+    category : string
 }
