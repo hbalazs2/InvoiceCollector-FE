@@ -105,5 +105,7 @@
       }
     }
   },
-  "defaultProject": "InvoiceCollector-FE"
+  "cli": {
+    "analytics": false
+  }
 }

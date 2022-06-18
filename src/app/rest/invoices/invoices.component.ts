@@ -11,6 +11,7 @@ import { InvoicesService } from '../invoices.service';
 export class InvoicesComponent implements OnInit {
   listInvoices: Invoice[] = [];
   invoicesByComplDate: Invoice[] = [];
+  invoicesByAll: Invoice[] = [];
 
   constructor(private servInvoices: InvoicesService, private router: Router) {
     this.servInvoices.getInvoices().subscribe(invoices => this.listInvoices = invoices.invoices);
@@ -37,20 +38,55 @@ export class InvoicesComponent implements OnInit {
     // console.log(this.invoicesByComplDate);
   }
 
+  getInvoicesByAll(id : string, startCreationDate : string, endCreationDate : string, startCompDate : string, endCompDate : string, startDeadlineDate : string, endDeadlineDate : string, minLimitStr : string, maxLimitStr : string, isIncoming : boolean, isOutgoing : boolean, partnerName : string, categoryName : string) {
+    // let invoicesByComplDate;
+    var minLimit = Number(minLimitStr);
+    var maxLimit = Number(maxLimitStr);
+    console.log(isIncoming);
+    console.log(isOutgoing);
+    this.servInvoices.getInvoicesByAll(id, startCreationDate, endCreationDate, startCompDate,
+      endCompDate, startDeadlineDate, endDeadlineDate, minLimit, maxLimit, isIncoming, isOutgoing,
+      partnerName, categoryName).subscribe(invoicesGetAll => {
+      this.invoicesByAll = invoicesGetAll.invoices;
+      console.log("inv comp: " + this.invoicesByAll);
+      this.fillTheTable(this.invoicesByAll);
+    });
+    
+    // console.log(this.invoicesByComplDate);
+  }
+
   fillTheTable(listOfInvoices : Invoice[]) {
     this.listInvoices = listOfInvoices;
   }
   
-  filterName1!:string;
-  filterName2!:string;
+  // filterName1!:string;
+  // filterName2!:string;
+  // id!:string;
+  // startCreationDate!:string;
+  // endCreationDate!:string;
+  // startCompDate!:string;
+  // endCompDate!:string;
+  // startDeadlineDate!:string;
+  // endDeadlineDate!:string;
+  // minLimit!:number;
+  // maxLimit!:number;
+  // partnerSelector!:string;
+  // categorySelector!:string;
 
   resetTable() {
     this.servInvoices.getInvoices().subscribe(invoices => this.listInvoices = invoices.invoices);
-    this.filterName1 = '';
-    this.filterName2 = '';
+    // this.filterName1 = '';
+    // this.filterName2 = '';
   }
-  isHidden:boolean = true;
+
+  isHidden:boolean = false;
   setFilterVisible() {
-    this.isHidden = false;
+    if (this.isHidden == false) {
+      this.isHidden = true;
+    }
+    else if (this.isHidden == true) {
+      this.isHidden = false;
+    }
+    
   }
 }

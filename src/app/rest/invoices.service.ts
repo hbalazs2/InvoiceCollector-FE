@@ -32,4 +32,12 @@ export class InvoicesService {
     let apiUrlDate = this.apiUrlBase + "Cod?startCompDate=" + start + "&endCompDate=" + end;
     return this.http.get<invoice>(apiUrlDate);
   }
+
+  getInvoicesByAll(id : string, startCreationDate : string, endCreationDate : string, startCompDate : string, endCompDate : string, startDeadlineDate : string, endDeadlineDate : string, minLimit : number, maxLimit : number, isIncoming : boolean, isOutgoing : boolean, partnerName : string, categoryName : string) {
+    console.log(partnerName);
+    console.log(categoryName);
+    let apiUrlDate = this.apiUrlBase + "ByAll?id=" + id + "&startCreationDate=" + startCreationDate + "&endCreationDate=" + endCreationDate + "&startCompDate=" + startCompDate + "&endCompDate=" + endCompDate + "&startDeadlineDate=" + startDeadlineDate + "&endDeadlineDate=" + endDeadlineDate + "&minLimit=" + minLimit + "&maxLimit=" + maxLimit + "&isIncoming=" + isIncoming + "&isOutgoing=" + isOutgoing + "&partnerName=" + partnerName + "&categoryName=" + categoryName;
+    console.log(apiUrlDate);
+    return this.http.get<invoice>(apiUrlDate);
+  }
 }
