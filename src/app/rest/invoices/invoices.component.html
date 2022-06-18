@@ -38,7 +38,7 @@
         </tfoot> -->
 
     </table>
-    <div>
+    <div id="filter" [hidden]="!isHidden">
         <div>
             <label  for="start">Start date: </label>
             <input type="date" id="startDate" min="2022-01-01" max="2030-12-31" #startDate [(ngModel)]="filterName1">
@@ -49,9 +49,12 @@
             <input type="date" id="endDate" min="2022-01-01" max="2030-12-31" #endDate [(ngModel)]="filterName2">
         </div>
         <div>
-            <button type="button" class="btn btn-primary" (click)="getInvoicesBetweenDatesByCDate(startDate.value, endDate.value)">Search</button>
+            <button type="button" class="btn btn-primary" (click)="getInvoicesBetweenDatesByComplDate(startDate.value, endDate.value)">Search</button>
             <button type="button" class="btn btn-secondary" id="resetButton" (click)="resetTable()">Reset</button>
         </div>
+    </div>
+    <div>
+        <button type="button" class="btn btn-primary" id="filterButton" (click)="setFilterVisible()">Filter</button>
     </div>
 
       
