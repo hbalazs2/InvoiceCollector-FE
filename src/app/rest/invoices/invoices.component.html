@@ -38,6 +38,9 @@
         </tfoot> -->
 
     </table>
+    <div>
+        <button type="button" class="btn btn-primary" id="filterButton" (click)="setFilterVisibility()">Filter</button>
+    </div>
     <div id="filter" [hidden]="isHidden">
         <form class="form-inline">
             <div class="col-1">
@@ -116,9 +119,7 @@
     </div>        
 
     </div>
-    <div>
-        <button type="button" class="btn btn-primary" id="filterButton" (click)="setFilterVisible()">Filter</button>
-    </div>
+
 
       
     <!-- <p>{{ listInvoices.length }} invoices found in the database.</p> -->
