@@ -10,7 +10,6 @@ import { InvoicesService } from '../invoices.service';
 })
 export class InvoicesComponent implements OnInit {
   listInvoices: Invoice[] = [];
-  invoicesByComplDate: Invoice[] = [];
   invoicesByAll: Invoice[] = [];
   isHidden: boolean = true;
 
@@ -22,19 +21,11 @@ export class InvoicesComponent implements OnInit {
   }
 
   showInvoice(id : string) {
-    console.log("ID: " + id)
     this.router.navigate(
       ['invoice'], 
       { queryParams: { id: id}}
     );
   }
-
-  // getInvoicesBetweenDatesByComplDate(start : string, end : string) {
-  //   this.servInvoices.getInvoicesBetweenDatesByCompletionDate(start, end).subscribe(invoicesByDate => {
-  //     this.invoicesByComplDate = invoicesByDate.invoices;
-  //     this.fillTheTable(this.invoicesByComplDate);
-  //   });
-  // }
 
   getInvoicesByAll(id : string, startCreationDate : string, endCreationDate : string, startCompDate : string, endCompDate : string, startDeadlineDate : string, endDeadlineDate : string, minLimitStr : string, maxLimitStr : string, isIncoming : boolean, isOutgoing : boolean, partnerName : string, categoryName : string) {
     var minLimit = Number(minLimitStr);

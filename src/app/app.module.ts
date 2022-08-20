@@ -9,6 +9,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { InvoicesComponent } from './rest/invoices/invoices.component';
 import { InvoiceComponent } from './rest/invoice/invoice.component';
 import { FormsModule } from '@angular/forms';
+import { PartnersComponent } from './rest/partners/partners.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     NotfoundComponent,
     InvoicesComponent,
-    InvoiceComponent
+    InvoiceComponent,
+    PartnersComponent
   ],
   imports: [
     BrowserModule,

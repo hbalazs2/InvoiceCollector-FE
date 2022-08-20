@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Invoice } from './invoice';
+import {MatPaginatorModule} from '@angular/material/paginator';
  
 type invoice = {
   count: number;

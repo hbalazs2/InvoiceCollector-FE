@@ -1,0 +1,30 @@
+<div>
+    <h2>Partners</h2>
+</div>
+<div>
+    <table class="table" *ngIf="listOfPartners.length">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Country</th>
+                <th>Postal code</th>
+                <th>City</th>
+                <th>Address</th>
+                <th>Connection date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let partner of listOfPartners" >
+                <td>{{ partner.id }}</td>
+                <td>{{ partner.name}}</td>
+                <td>{{ partner.countryCode }}</td>
+                <td>{{ partner.postalCode }}</td>
+                <td>{{ partner.city }}</td>
+                <td>{{ partner.address }}</td>
+                <td>{{ partner.connectionDate }}</td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
